@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@600&display=swap" rel="stylesheet">
@@ -18,6 +19,7 @@
           background-color:#141414 ;
           font-family: 'Heebo', sans-serif;
       }
+
       #netflixlogo{
           width: 120px;
       }
@@ -25,30 +27,25 @@
       nav{
         background-color: #141414;
         color: #282121;
-        
-        
       }
 
       #avatar{
-          width: 40px;
+          width: 60px;
           margin-left: auto;
           height: 50px;
           object-fit: contain;
-
       }
 
-      #id{
-          margin-left: auto;
-      }
+      
 
-      div.navbar-nav{
+       div.navbar-nav{
           margin-right: auto;
-      }
+      } 
 
-      #side img{
+       #side img{
           padding-left: 10px;
           padding-right: 10px;
-      }
+      } 
       .navbar-expand-lg{
         padding-top: 0;
 
@@ -90,7 +87,7 @@
           width:50%
       }
 
-      #info{
+      .info{
           padding: 0;
           margin-top: 10px;
           font-size: 14px;
@@ -102,8 +99,18 @@
           border-width: 0.125px;
           border: solid;
           border-color: rgb(65, 64, 64);
+          margin-top: 20px;
       }
 
+       .social{
+        margin-left: 5px;
+        margin-right: 8px
+      } 
+
+      .fb{
+          padding-left: 0;
+          padding-right: 8px;
+      }
       
           
         
@@ -156,15 +163,15 @@
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="#">Something else here</a>
+                    <a class="dropdown-item" href="#"> else here</a>
                   </div>
                 </li>
               </ul>
             </div>
 
             <div id="side">
-                <img src="/netflix-ui-start/assets/list-16 (1).ico" alt="list icon">
-                <img src="/netflix-ui-start/assets/grid-16.ico" alt="grid icon">
+                <img src="/netflix-ui-start/assets/media/activity-feed-24.ico" alt="list icon">
+                <img src="/netflix-ui-start/assets/media/grid-two-up-24.ico" alt="grid icon">
             </div>
           </nav>     
     </div>
@@ -263,37 +270,37 @@
     </div>
 
     <div id="footer" class="container-fluid">
-        <div class="row spaces-between">
-            <div class="col-3">
-                <img src="/netflix-ui-start/assets/media/facebook-16.ico" alt="">
-                <img src="/netflix-ui-start/assets/media/instagram-5-16.ico" alt="">
-                <img src="/netflix-ui-start/assets/media/twitter-4-16.ico" alt="">
-                <img src="/netflix-ui-start/assets/media/youtube-4-16.ico" alt="">
+        <div class="row">
+            <div class="col-6 px-0">
+                <img src="/netflix-ui-start/assets/media/facebook-3-24.ico" alt="" class="fb img-fluid">
+                <img src="/netflix-ui-start/assets/media/instagram-6-24.ico" alt="" class="social img-fluid">
+                <img src="/netflix-ui-start/assets/media/twitter-2-24.ico" alt="" class="social img-fluid">
+                <img src="/netflix-ui-start/assets/media/youtube-6-24.ico" alt="" class="social img-fluid">
             </div>
         </div>
         <div class="row">
-            <div id="info" class="col-3">Audio und Subtitles</div>
-            <div id="info" class="col-3">Audio Description</div>
-            <div id="info" class="col-3">HElp Center</div>
-            <div id="info" class="col-3">Gift Cards</div>
+            <div class="info col-3">Audio und Subtitles</div>
+            <div class="info col-3">Audio Description</div>
+            <div class="info col-3">Help Center</div>
+            <div class="info col-3">Gift Cards</div>
         </div>
         <div class="row">
-            <div id="info" class="col-3">Media Center</div>
-            <div id="info" class="col-3">Something </div>
-            <div id="info" class="col-3">Jobs</div>
-            <div id="info" class="col-3">Terms of Use</div>
+            <div class="info col-3">Media Center</div>
+            <div class="info col-3">Investor Relations </div>
+            <div class="info col-3">Jobs</div>
+            <div class="info col-3">Terms of Use</div>
         </div>
         <div class="row">
-            <div id="info" class="col-3">Privacy</div>
-            <div id="info" class="col-3">Legal Notices</div>
-            <div id="info" class="col-3">Console Preferences</div>
-            <div id="info" class="col-3">Corporate Information</div>
+            <div class="info col-3">Privacy</div>
+            <div class="info col-3">Legal Notices</div>
+            <div class="info col-3">Console Preferences</div>
+            <div class="info col-3">Corporate Information</div>
         </div>
         <div class="row">
-            <div id="info" class="col-3">Contact Us</div>
-            <div id="info" class="col-3"></div>
-            <div id="info" class="col-3"></div>
-            <div id="info" class="col-3"></div>
+            <div class="info col-3">Contact Us</div>
+            <div class="info col-3"></div>
+            <div class="info col-3"></div>
+            <div class="info col-3"></div>
         </div>
         <div class="row">
             <button id="service" type="button" class="">Service Code</button>
