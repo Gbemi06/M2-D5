@@ -26,7 +26,7 @@
 
   <style>
     body {
-      background-color: #141414;
+      background-color: #5a7a5c;
       font-family: "Heebo", sans-serif;
     }
 
@@ -143,7 +143,7 @@
             <a class="nav-link active" href="./index.html"
               >Home <span class="sr-only">(current)</span></a
             >
-            <a class="nav-link" href="./back-office.html">Backoffice</a>
+            <a class="nav-link" href="#">TV Shows</a>
             <a class="nav-link" href="#">Movies</a>
             <a class="nav-link disabled">Recently Added</a>
             <a class="nav-link disabled">My List</a>
@@ -172,60 +172,51 @@
       </nav>
     </div>
 
-    <div id="tvshowbar" class="container-fluid">
-      <nav class="navbar navbar-expand-sm navbar-dark">
-        <h1>TV Shows</h1>
-        <button
-          class="navbar-toggler"
-          type="button"
-          data-toggle="collapse"
-          data-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent"
-          aria-expanded="false"
-          aria-label="Toggle navigation"
-        >
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item dropdown">
-              <a
-                class="nav-link dropdown-toggle"
-                href="#"
-                id="navbarDropdown"
-                role="button"
-                data-toggle="dropdown"
-                aria-expanded="false"
-              >
-                Genres
-              </a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Action</a>
-                <a class="dropdown-item" href="#">Another action</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#"> else here</a>
-              </div>
-            </li>
-          </ul>
+    <div class="container text-white">
+      <div class="row justify-content-center mt-5">
+        <div class="col-md-6">
+          <h2 class="mb-3">Backoffice</h2>
+          <form onsubmit="handleSubmit(event)">
+            <div class="form-group">
+              <label for="name">Movie Title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                aria-describedby="nameEvent"
+                placeholder="Enter the name of the Movie"
+              />
+            </div>
+            <div class="form-group">
+              <label for="description">Movie Description</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="description"
+                aria-describedby="descriptionEvent"
+                placeholder="Insert a description"
+                rows="6"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="genre">Genres</label>
+              <input
+                type="text"
+                class="form-control"
+                id="genre"
+                aria-describedby="priceEvent"
+                placeholder="Enter the Genre of the Movie"
+              />
+            </div>
+            <div class="form-group">
+              <label for="image">image</label>
+              <input type="text" id="image" />
+            </div>
+            <button type="reset" class="btn btn-light">Reset</button>
+            <button type="submit" class="btn btn-success">Submit Event</button>
+          </form>
         </div>
-
-        <div id="side">
-          <img
-            src="/netflix-ui-start/assets/media/activity-feed-24.ico"
-            alt="list icon"
-          />
-          <img
-            src="/netflix-ui-start/assets/media/grid-two-up-24.ico"
-            alt="grid icon"
-          />
-        </div>
-      </nav>
-    </div>
-
-    <div class="container-fluid mt-5">
-      <h5>Trending Now</h5>
-      <div class="row no-gutters px-1 first_label"></div>
+      </div>
     </div>
 
     <div id="footer" class="container-fluid">
@@ -288,35 +279,35 @@
     ></script>
 
     <script>
-      const baseUrl = "https://striveschool-api.herokuapp.com/api/movies/";
+      const handleSubmit = async (event) => {
+        event.preventDefault();
 
-      const loadMovie = async () => {
+        const baseUrl = "https://striveschool-api.herokuapp.com/api/movies/";
+
+        const postMovie = {
+          category: document.getElementById("genre").value,
+          description: document.getElementById("description").value,
+          imageUrl: document.getElementById("image").value,
+          name: document.getElementById("name").value,
+        };
+
+        console.log(postMovie);
+
         try {
           let fetchData = await fetch(baseUrl, {
+            method: "POST",
+            body: JSON.stringify(postMovie),
             headers: {
               Authorization:
                 "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MWZhNzAyYTgyZWExZDAwMTViYjA0N2MiLCJpYXQiOjE2NDM4MzMwNTcsImV4cCI6MTY0NTA0MjY1N30.NrwsTWlIQHoc8jyYUXWLuXpoyL9qV0I_tsKMVwCM01I",
+              "Content-Type": "application/json",
             },
           });
           const movieData = await fetchData.json();
           console.log(movieData);
-
-          let card = document.querySelector(".first_label");
-          // let div = document.createElement("div")
-          // div.classList.add("col-16,col-sm-4,col-md-3,col-lg-2,px-1")
-
-          movieData.forEach((movie) => {
-            card.innerHTML += `<div class="col-16 col-sm-4 col-md-3 col-lg-2 px-1 ">
-               <a href="./details.html?movieId=${movie._id}"><img src="${movie.imageUrl}" alt="Image" class="titles img-fluid"></a>
-             </div>`;
-          });
         } catch (error) {
           console.log(error);
         }
-      };
-
-      window.onload = () => {
-        loadMovie();
       };
     </script>
   </body>
