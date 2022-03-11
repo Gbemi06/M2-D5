@@ -118,6 +118,7 @@
       const deleteButton = document.getElementById("delete-button");
 
       window.onload = async () => {
+          
         if (movieId) {
           try {
             const resp = await fetch(endpoint + movieId, {
@@ -139,7 +140,6 @@
           } catch (error) {
             console.log(error);
             alert("something went wrong");
-            window.location.assign("/backoffice.html");
           }
         }
       };
