@@ -108,6 +108,9 @@
       const movieId = new URLSearchParams(window.location.search).get("id");
       console.log(movieId);
 
+      const movieCategory = new URLSearchParams(window.location.search).get("category");
+      console.log(movieCategory);
+
       const [name, category, image] =
         document.querySelectorAll("form input");
 

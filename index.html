@@ -333,23 +333,8 @@
           },
         });
         let movieData = await response.json();
-        console.log(movieData);
-        // category.push(movieData);
 
-        actionMovies.innerHTML += movieData
-          .map(
-            (movies, i) => `
-       <div class="col-16 col-sm-4 col-md-3 col-lg-2 px-1">
-              <a href="/backoffice.html?id=${movieData[i]._id}"> <img
-                 src="${movieData[i].imageUrl}"
-                 alt=""
-                 class="titles img-fluid"
-               />
-               </a>
-             </div>
-      `
-          )
-          .join("");
+        loopMovies(movieData);
       };
 
       const fetchData = async () => {
@@ -369,15 +354,13 @@
         fetchData();
       };
 
-      let showMovies = () => {
-        category.map((movies) => console.log(movies));
-      };
-      showMovies();
-
-      /* const showMovies = (image, id, where) => {
+      const showMovies = (image, id, category, where) => {
+        console.log(image);
+        console.log(id);
+        console.log(where);
         let code = `
        <div class="col-16 col-sm-4 col-md-3 col-lg-2 px-1">
-              <a href="/backoffice.html?id=${id}"> <img
+              <a href="/backoffice.html?id=${id}?%20category=${category}"> <img
                  src="${image}"
                  alt=""
                  class="titles img-fluid"
@@ -393,24 +376,38 @@
         console.log(category);
         for (let i = 0; i <= array.length; i++) {
           console.log(array);
-          let data = array[i];
 
           // Checking if it is exist
-          if (data.category == "action") {
+          if (array[i].category == "action") {
             console.log(array[i].category);
-            showMovies(array[i].imageUrl, actionMovies);
+            showMovies(
+              array[i].imageUrl,
+              array[i]._id,
+              array[i].category,
+              actionMovies
+            );
           }
-          if (array[i].category == "comedy") {
+          if (array[i].category == "drama") {
             console.log(array[i].category);
-            showMovies(array[i].imageUrl, array[i]._id, dramaMovies);
+            showMovies(
+              array[i].imageUrl,
+              array[i]._id,
+              array[i].category,
+              dramaMovies
+            );
           }
 
           if (array[i].category == "comedy") {
             console.log(array[i].category);
-            showMovies(array[i].imageUrl, comedyMovies);
+            showMovies(
+              array[i].imageUrl,
+              array[i]._id,
+              array[i].category,
+              comedyMovies
+            );
           }
         }
-      };*/
+      };
     </script>
 
     <script
